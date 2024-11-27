@@ -7,45 +7,38 @@
 
 Sample Python application on Django with PostgreSQL database.
 
-<h3>Requirements</h3>
+# devops-sample-django-app
 
-____
+## Описание проекта
 
+Это тестовое приложение для практики DevOps с использованием Django и PostgreSQL.
 
-- django 4.0.1
-- Pillow 9.0.0
-- psycopg2-binary 2.9.3
-- django-prometheus 2.2.0
+## Запуск приложения через Docker Compose
 
-<h3>Deployment</h3>
+### Требования
 
-____
+- Docker
+- Docker Compose
 
+### Инструкции по запуску
 
+1. Клонируйте репозиторий:
 
-- install Python 3.8
-- install libs 
-```shell
-      pip3 install -r requirements.txt
-```
+   ```bash
+   git clone https://github.com/YourUsername/devops-sample-django-app.git
+   cd devops-sample-django-app
 
-* Set environment export for variables:
-```yaml
-      DJANGO_DB_HOST: db
-      DJANGO_DB_NAME: app
-      DJANGO_DB_USER: worker
-      DJANGO_DB_PASS: worker
-      DJANGO_DB_PORT: "5432"
-      DJANGO_DEBUG: "False"
-```
+2. Запустите контейнер:
+   ```bash
+   docker-compose up --build
 
+3. Приложение будет доступно по адресу: http://localhost:8000
 
-* migrate database:
-```shell
-python3 manage.py migrate
-```
+### Состав Docker Compose
 
-* start application:
-```shell
-python3 manage.py runserver 0.0.0.0:8000
-```
+Файл docker-compose.yml содержит следующие службы:
+
+- db: база данных PostgreSQL.
+
+- web: Django приложение с uWSGI.
+
